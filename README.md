@@ -43,10 +43,15 @@ The repository is organized logically for clarity and maintainability.
 
 /
 ├── index.html # Main HTML file
+
 ├── style.css # All styles for the project
+
 ├── script.js # All interactive logic
+
 ├── README.md # You are here!
+
 ├── Photo1.jpg # Main profile picture
+
 └── avatar-*.png # The four custom avatars for the cursor
 
 ---
