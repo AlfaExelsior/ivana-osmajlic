@@ -1,4 +1,4 @@
-/* --- DIGITAL FRONTIER v3.4 (HUD Header) --- */
+/* --- DIGITAL FRONTIER v3.6 (Final Version) --- */
 :root {
     --bg-dark: #030712;
     --primary-glow: #00BFFF;
@@ -27,7 +27,7 @@ body {
     background-size: 35px 35px;
 }
 
-/* --- INTERAKTIVNI ELEMENTI --- */
+/* --- INTERACTIVE & ACCESSIBILITY ELEMENTS --- */
 #avatar-cursor { position: fixed; top: 0; left: 0; width: 65px; height: 65px; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); }
 #avatar-cursor-outline { width: 100%; height: 100%; border: 2px solid var(--primary-glow); border-radius: 50%; transition: all 0.2s ease-out; position: absolute; }
 .cursor-avatar { position: absolute; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; opacity: 0; transform: scale(0.8); transition: opacity 0.4s ease, transform 0.4s ease; }
@@ -37,40 +37,29 @@ body {
 .trail-particle { position: fixed; background-color: var(--primary-glow); border-radius: 50%; pointer-events: none; z-index: 9998; opacity: 1; animation: fadeOut 0.5s forwards; box-shadow: 0 0 8px var(--primary-glow); }
 @keyframes fadeOut { to { opacity: 0; transform: scale(0); } }
 
-/* --- OSNOVNI LAYOUT & TIPOGRAFIJA --- */
+/* Accessibility focus styles */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--secondary-glow);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* --- CORE LAYOUT & TYPOGRAPHY --- */
 .content-wrapper { position: relative; z-index: 1; }
 .container { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
 .section-title, .journey-title { font-family: var(--font-mono); color: var(--primary-glow); text-shadow: 0 0 10px var(--primary-glow); }
 .section-title { font-size: clamp(1.5rem, 4vw, 2rem); text-align: left; margin-bottom: 3rem; }
 h3 { font-family: var(--font-mono); color: var(--text-light); }
 
-/* --- AŽURIRANO: HEADER FUTURISTIČKI DIZAJN --- */
+/* --- HEADER --- */
 header { position: sticky; top: 0; z-index: 10; background-color: rgba(3, 7, 18, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--grid-border); }
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
-.logo-link, .nav-link {
-    font-family: var(--font-mono);
-    color: var(--text-light);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-    padding: 0.5rem 1rem;
-}
+.logo-link, .nav-link { font-family: var(--font-mono); color: var(--text-light); text-decoration: none; transition: all 0.3s ease; position: relative; padding: 0.5rem 1rem; }
 .logo-link { font-weight: 700; color: var(--text-color); font-size: 1.2rem; }
-nav ul { display: flex; gap: 0.5rem; list-style: none; }
+.desktop-nav { display: flex; gap: 0.5rem; list-style: none; }
 .logo-link:hover, .nav-link:hover { color: var(--primary-glow); text-shadow: 0 0 8px var(--primary-glow); }
-
-/* Animirani uglovi za HUD */
-.corner {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border: 2px solid transparent;
-    transition: all 0.3s ease-in-out;
-}
-.logo-link:hover .corner, .nav-link:hover .corner {
-    width: 10px;
-    height: 10px;
-}
+.corner { position: absolute; width: 0; height: 0; border: 2px solid transparent; transition: all 0.3s ease-in-out; }
+.logo-link:hover .corner, .nav-link:hover .corner { width: 10px; height: 10px; }
 .corner:nth-of-type(1) { top: 0; left: 0; border-top-color: var(--primary-glow); border-left-color: var(--primary-glow); }
 .corner:nth-of-type(2) { top: 0; right: 0; border-top-color: var(--primary-glow); border-right-color: var(--primary-glow); }
 .corner:nth-of-type(3) { bottom: 0; left: 0; border-bottom-color: var(--primary-glow); border-left-color: var(--primary-glow); }
@@ -83,7 +72,7 @@ nav ul { display: flex; gap: 0.5rem; list-style: none; }
 .btn { font-family: var(--font-mono); padding: 0.8rem 1.5rem; border: 2px solid var(--primary-glow); color: var(--primary-glow); background: transparent; text-decoration: none; transition: all 0.3s ease; }
 .btn:hover { background-color: rgba(0, 191, 255, 0.1); box-shadow: 0 0 15px var(--primary-glow); }
 
-/* --- GRID KARTICE I ANIMACIJE UGLOVA --- */
+/* --- GRID CARDS & CORNER ANIMATIONS --- */
 .grid-card { position: relative; background-color: var(--grid-bg); border: 1px solid var(--grid-border); transition: all 0.3s ease; padding: 2rem; }
 .grid-card:hover { border-color: var(--grid-border-hover); }
 .grid-card .corner-t-l, .grid-card .corner-t-r, .grid-card .corner-b-l, .grid-card .corner-b-r { position: absolute; width: 0; height: 0; border: 2px solid transparent; transition: all 0.4s ease; }
@@ -93,16 +82,18 @@ nav ul { display: flex; gap: 0.5rem; list-style: none; }
 .grid-card .corner-b-l { bottom: -2px; left: -2px; border-bottom-color: var(--secondary-glow); border-left-color: var(--secondary-glow); }
 .grid-card .corner-b-r { bottom: -2px; right: -2px; border-bottom-color: var(--secondary-glow); border-right-color: var(--secondary-glow); }
 
-/* --- SEKCIJE --- */
+/* --- SECTIONS --- */
 #about .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center; }
 #about .image-frame { padding: 1rem; }
 #about .about-image img { width: 100%; object-fit: cover; filter: grayscale(50%) brightness(90%) contrast(110%); }
 #projects .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-#projects .project-card { display: flex; flex-direction: column; }
+#projects .project-card { display: flex; flex-direction: column; cursor: pointer; }
+.project-details-hidden { display: none; }
 #projects .project-info { flex-grow: 1; }
 #projects .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
 #projects .project-tags span { font-family: var(--font-mono); font-size: 0.8rem; background: rgba(0, 191, 255, 0.1); padding: 0.3rem 0.6rem; border-radius: 4px; }
-.btn-project { font-family: var(--font-mono); color: var(--primary-glow); text-decoration: none; align-self: flex-start; }
+.btn-project { font-family: var(--font-mono); color: var(--primary-glow); text-decoration: none; align-self: flex-start; background: none; border: none; padding: 0; font-size: 1rem; }
+
 #journey .journey-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 #journey .journey-column { padding: 1rem; }
 #journey .journey-title { font-size: 1.2rem; margin-bottom: 1.5rem; }
@@ -111,7 +102,7 @@ nav ul { display: flex; gap: 0.5rem; list-style: none; }
 #journey .data-block p { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-light); }
 #journey .data-block p span { color: var(--primary-glow); }
 
-/* --- KONTAKT FORMULAR --- */
+/* --- CONTACT FORM --- */
 #contact .contact-area { padding: 2rem; }
 #contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
 .form-group { display: flex; flex-direction: column; }
@@ -124,8 +115,25 @@ nav ul { display: flex; gap: 0.5rem; list-style: none; }
 #form-result.success { background-color: rgba(0, 255, 127, 0.1); border: 1px solid var(--success-glow); color: var(--success-glow); }
 #form-result.error { background-color: rgba(255, 69, 0, 0.1); border: 1px solid var(--error-glow); color: var(--error-glow); }
 
+/* --- PROJECT MODAL STYLES --- */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(3, 7, 18, 0.9); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; backdrop-filter: blur(5px); }
+.modal-overlay.is-open { opacity: 1; visibility: visible; }
+.modal-container { max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto; transform: scale(0.9); transition: transform 0.4s ease; }
+.modal-overlay.is-open .modal-container { transform: scale(1); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--grid-border); padding-bottom: 1rem; margin-bottom: 1rem; }
+.modal-close-btn { background: none; border: none; font-size: 2rem; color: var(--text-light); transition: all 0.3s ease; line-height: 1; }
+.modal-close-btn:hover { color: var(--secondary-glow); transform: rotate(90deg); }
+#modal-content p { margin-bottom: 1.5rem; }
+#modal-content .btn { margin-top: 1rem; }
+
 footer { font-family: var(--font-mono); text-align: center; padding: 2rem; color: var(--text-light); font-size: 0.8rem; }
 
 /* --- RESPONSIVE --- */
+/* Hide avatar cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    html { cursor: auto; }
+    #avatar-cursor { display: none; }
+}
+
 @media (max-width: 900px) { #journey .journey-content { grid-template-columns: 1fr; } }
-@media (max-width: 768px) { html { cursor: auto; } #avatar-cursor { display: none; } nav ul { display: none; } #about .about-content { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .desktop-nav { display: none; } #about .about-content { grid-template-columns: 1fr; } }
