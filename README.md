@@ -1,6 +1,6 @@
 # Ivana Osmajlić - Digital Frontier Portfolio
 
-![Portfolio Screenshot]([https://github.com/AlfaExelsior/AlfaExelsior.github.io/assets/101292193/a340156d-e4c1-450f-a9bd-80327771765c](https://github.com/AlfaExelsior/ivana-osmajlic/blob/main/MyWebsite.png))
+![Portfolio Screenshot](MyWebsite.png)
 
 Welcome to the source code of my personal portfolio website, designed with a "Digital Frontier" futuristic aesthetic. This is more than just a CV; it's an interactive digital experience built to showcase my skills, professional journey, and passion for technology and design.
 
