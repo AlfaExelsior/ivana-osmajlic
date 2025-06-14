@@ -6,7 +6,7 @@
 
 This is not just a CV. It's an immersive digital space designed to reflect **who I am as a professional**, showcasing my passion for technology, design, and innovation. Every pixel in this project is intentional — built from scratch with care, clarity, and creative energy.
 
-🔗 **Live Version:** [https://AlfaExelsior.github.io](https://AlfaExelsior.github.io)
+🔗 **Live Version:** [https://AlfaExelsior.github.io](https://AlfaExelsior.github.io/ivana-osmajlic)
 
 ---
 
